@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"><!show language>
+<head>
+<meta charset='UTF-8'><!عرض رموز خاصه مثل الايموجي >
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><!التحكم في عرض الشاشه بما يلائم جميع الاجهزة من لاب او هاتف >
+<title>Task2</title>
+</head>
+<body>
+<button id='Task2'>click me</button><!تحديد معرف خاص لهذا ال button>
+<script>
+  document.getElementById('Task2').addEventListener('click',function(){
+  console.log('Hello world');
+  });
+</script>
+</body>
+</html>
