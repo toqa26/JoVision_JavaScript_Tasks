@@ -16,7 +16,7 @@
 
             let sum = numbers.reduce((acc, num) => acc + num, 0);
 
-            console.log("The summition is : " + sum);
+            console.log("The Total is : " + sum);
         });
     </script>
     
