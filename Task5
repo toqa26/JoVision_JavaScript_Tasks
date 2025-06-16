@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum Even Numbers</title>
+</head>
+<body>
+    <button id="sumButton">Click me</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('sumButton').onclick = function() {
+            let numbers = [];
+            for (let i = 0; i <= 100; i++) {
+                numbers.push(i);
+            }
+
+            let sum = 0;
+            for (let i = 0; i < numbers.length; i++) {
+                if (numbers[i] % 2 === 0) {
+                    sum += numbers[i];
+                }
+            }
+
+            document.getElementById('result').textContent = 'Sum of even numbers between 0 and 100: ' + sum;
+        };
+    </script>
+</body>
+</html>
