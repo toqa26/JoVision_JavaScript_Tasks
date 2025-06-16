@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Methods Demo</title>
+</head>
+<body>
+    <button id="btn1">Button One</button>
+    <button id="btn2">Button Two</button>
+    <button id="btn3">Button Three</button>
+    <button id="btn4">Button Four</button>
+    <button id="btn5">Button Five</button>
+
+    <script>
+        function createArray0to100() {
+            return Array.from({length: 101}, (_, i) => i);
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        document.getElementById('btn1').onclick = function() {
+            let arr = createArray0to100();
+            let filtered = arr.filter(num => num % 3 !== 0);
+            console.log("Button One Result:", filtered);
+        };
+
+        document.getElementById('btn2').onclick = function() {
+            let arr = createArray0to100();
+            let arr2 = Array.from({length: 51}, (_, i) => i + 100);
+            let combined = arr.concat(arr2);
+            console.log("Button Two Result:", combined);
+        };
+
+        document.getElementById('btn3').onclick = function() {
+            let arr = createArray0to100();
+            let added = arr.map(num => num + 3);
+            console.log("Button Three Result:", added);
+        };
+
+        document.getElementById('btn4').onclick = function() {
+            let arr = createArray0to100();
+            let sliced = arr.slice(20, 41); // slice is [start, end)
+            console.log("Button Four Result:", sliced);
+        };
+
+        document.getElementById('btn5').onclick = function() {
+            let arr = createArray0to100();
+            shuffleArray(arr);
+            console.log("Button Five Shuffled:", arr);
+            arr.sort((a, b) => b - a);
+            console.log("Button Five Descending:", arr);
+        };
+    </script>
+</body>
+</html>
