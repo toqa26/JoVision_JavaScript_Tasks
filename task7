@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Time Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 2em;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #clock {
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>
+        function pad(num) {
+            return num.toString().padStart(2, '0');
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const hours = pad(now.getHours());
+            const minutes = pad(now.getMinutes());
+            const seconds = pad(now.getSeconds());
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
