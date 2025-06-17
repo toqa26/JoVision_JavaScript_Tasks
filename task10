@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get IP Example</title>
+</head>
+<body>
+  <button id="get-ip-btn">Get ip</button>
+
+  <script>
+    document.getElementById('get-ip-btn').addEventListener('click', function() {
+      const btn = this;
+      fetch('https://api.ipify.org/')
+        .then(response => response.text())
+        .then(ip => {
+          btn.textContent = ip;
+        })
+        .catch(error => {
+          btn.textContent = 'Error';
+        });
+    });
+  </script>
+</body>
+</html>
