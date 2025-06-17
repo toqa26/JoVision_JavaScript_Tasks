@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get IP Example</title>
+</head>
+<body>
+  <button id="get-ip-btn">Get ip</button>
+
+  <script>
+    document.getElementById('get-ip-btn').addEventListener('click', function() {
+      const btn = this;
+      fetch('https://api.ipify.org/')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(ip => {
+          btn.textContent = ip;
+        })
+        .catch(error => {
+          window.alert('Error fetching IP: ' + error.message);
+        });
+    });
+  </script>
+</body>
+</html>
