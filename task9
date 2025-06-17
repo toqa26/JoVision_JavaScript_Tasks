@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get IP Example</title>
+</head>
+<body>
+  <button id="get-ip-btn">Get ip</button>
+
+  <script>
+    document.getElementById('get-ip-btn').addEventListener('click', function() {
+      fetch('https://api.ipify.org/')
+        .then(response => response.text())
+        .then(ip => {
+          console.log('Your IP address is:', ip);
+        })
+        .catch(error => {
+          console.error('Error fetching IP:', error);
+        });
+    });
+  </script>
+</body>
+</html>
