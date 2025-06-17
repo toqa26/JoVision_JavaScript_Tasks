@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Predictor</title>
+</head>
+<body>
+  <h1>Age Predictor</h1>
+  <input type="text" id="nameInput" placeholder="Name" title="Name" />
+  <button id="submitButton">Submit</button>
+
+  <script>
+    document.getElementById('submitButton').addEventListener('click', () => {
+      const name = document.getElementById('nameInput').value.trim();
+
+      if (!name) {
+        alert("Please enter a name.");
+        return;
+      }
+
+      fetch(`https://api.agify.io/?name=${encodeURIComponent(name)}`)
+        .then(response => response.json())
+        .then(({ name, age }) => {
+          alert(`Your name is: ${name}\nYour age is: ${age}`);
+        })
+        .catch(error => {
+          console.error("Error fetching age:", error);
+          alert("Something went wrong. Please try again.");
+        });
+    });
+  </script>
+</body>
+</html>
